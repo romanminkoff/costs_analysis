@@ -104,5 +104,6 @@ def items_totals(df_costs, df_quantity):
     df_sammary = df_sammary.sort_values(by=['sum'], ascending=False)
     df_sammary['count'] = df_quantity.sum(axis=1)
     df_sammary['avg price'] = df_sammary['sum'] / df_sammary['count']
-    df_sammary['avg per mon'] = df_sammary['sum'] / len(df_sammary.columns)
+    n_months = len(df_costs.columns)
+    df_sammary['avg per mon'] = df_sammary['sum'] / n_months
     return df_sammary
